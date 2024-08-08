@@ -74,4 +74,10 @@
       switch = "darwin-rebuild switch --flake ~/.config/nix-darwin";
     };
   };
+
+  programs.git = {
+    enable = true;
+    userName = "Niccolò Faraco";
+    userEmail = "faraco.nic@gmail.com";
+  };
 }
