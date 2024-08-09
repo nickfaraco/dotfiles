@@ -18,6 +18,8 @@ in {
       # extremely important, otherwise git will attempt to guess a default user identity. see `man git-config` for more details
       user.useConfigOnly = true;
 
+      push.followTags = true;
+
       # the `work` identity
       user.work.name = "Niccolò Faraco";
       user.work.email = "niccolo.faraco@polimi.it";
@@ -32,6 +34,9 @@ in {
       identity = "! git-identity";
       id = "! git-identity";
     };
+    ignores = [
+      ".DS_Store"
+    ];
   };
 
 }
