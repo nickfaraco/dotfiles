@@ -90,4 +90,14 @@
     extraConfig = builtins.readFile ./extraConfigs/wezterm.lua;
   };
 
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "FiraCode Nerd Font Mono";
+      size = 12;
+    };
+    shellIntegration.enableZshIntegration = true;
+    theme = "Everforest Dark Medium";  # use >> kitty +kitten themes << to see the available ones
+  };
+
 }
