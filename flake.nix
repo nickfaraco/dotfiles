@@ -52,10 +52,29 @@
 
       # Manage some MacOS settings
       system.defaults = {
-        dock.autohide = true;
-        dock.mru-spaces = false;
-        finder.AppleShowAllExtensions = true;
-        finder.FXPreferredViewStyle = "clmv";
+        dock = {
+	  autohide = true;
+	  autohide-delay = 0.01;
+	  tilesize = 48;
+	  orientation = "left";
+	  minimize-to-application = true;
+	  showhidden = true;
+	  show-recents = false;
+          mru-spaces = false;
+	  # persistent-others = [ "~" "Users/nick/Downloads" ];
+	  # corners hot action
+	  wvous-tl-corner = 2;
+	  wvous-tr-corner = 10;
+	  wvous-br-corner = 4;
+	  wvous-bl-corner = 3;
+	};
+        finder = {
+	  AppleShowAllExtensions = true;
+          FXPreferredViewStyle = "clmv";
+          FXDefaultSearchScope = "SCcf";
+	  ShowPathbar = true;
+	  ShowStatusBar = true;
+	};
         screencapture.location = "~/Pictures/screenshots";
         screensaver.askForPasswordDelay = 10;
       };
