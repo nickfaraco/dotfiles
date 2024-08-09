@@ -16,8 +16,9 @@
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
+      environment.systemPackages = with pkgs; [ 
+	  vim
+	  raycast
         ];
 
       # Auto upgrade nix package and the daemon service.
@@ -41,6 +42,11 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
       
+      nixpkgs.config = {
+        # Disable if you don't want unfree packages
+        allowUnfree = true;
+      };
+
       users.users.nick = {
           name = "nick";
           home = "/Users/nick";
