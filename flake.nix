@@ -50,6 +50,7 @@
       nix.configureBuildUsers = true;
       nix.useDaemon = true;
 
+      # Manage some MacOS settings
       system.defaults = {
         dock.autohide = true;
         dock.mru-spaces = false;
@@ -59,15 +60,6 @@
         screensaver.askForPasswordDelay = 10;
       };
       security.pam.enableSudoTouchIdAuth = true;
-
-      # Homebrew needs to be installed on its own!
-      homebrew.enable = true;
-      homebrew.casks = [
-              "google-chrome"
-      ];
-      homebrew.brews = [
-	      "imagemagick"
-      ];
     };
   in
   {
