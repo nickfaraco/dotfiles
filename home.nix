@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -23,6 +23,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    pkgs.iterm2
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -65,13 +66,14 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
-    ./git
+    ./extraConfigs/git
   ];
 
   # Manage user programs
@@ -87,7 +89,7 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    extraConfig = builtins.readFile ./extraConfigs/wezterm.lua;
+    extraConfig = builtins.readFile ./extraConfigs/dots/wezterm.lua;
   };
 
   programs.kitty = {

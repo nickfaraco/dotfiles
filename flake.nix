@@ -16,9 +16,12 @@
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [ 
-	  vim
+      environment.systemPackages = with pkgs; [
+	  fzf
+	  helix
 	  raycast
+	  ripgrep
+	  zoxide
         ];
 
       # Auto upgrade nix package and the daemon service.
