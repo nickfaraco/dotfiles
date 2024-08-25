@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home = {
@@ -29,7 +32,7 @@
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -99,7 +102,6 @@
       size = 12;
     };
     shellIntegration.enableZshIntegration = true;
-    theme = "Everforest Dark Medium";  # use >> kitty +kitten themes << to see the available ones
+    theme = "Everforest Dark Medium"; # use >> kitty +kitten themes << to see the available ones
   };
-
 }

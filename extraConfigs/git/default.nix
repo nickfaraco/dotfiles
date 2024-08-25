@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   # put a shell script into the nix store
   gitIdentity =
     pkgs.writeShellScriptBin "git-identity" (builtins.readFile ./git-identity);
@@ -38,5 +41,4 @@ in {
       ".DS_Store"
     ];
   };
-
 }
