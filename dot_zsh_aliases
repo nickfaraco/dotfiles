@@ -1,0 +1,37 @@
+# Improve ls
+if ! command -v lsd &> /dev/null ; then
+  if [[ $(uname) == Darwin ]]; then
+    alias ls="gls -Fh --color --group-directories-first"
+  else
+    alias ls="ls -Fh --color --group-directories-first"
+  fi
+  alias la='ls -alH'
+  alias ll='ls -lH'
+else
+  alias ls='lsd --icon always --color=auto --group-directories-first'
+  alias ll="ls --oneline"
+  alias la="ls --all --oneline"
+  alias lv="lsd -la --icon always --group-directories-first"
+fi
+
+# Filesystem navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Random
+alias vim='nvim'
+alias v='nvim'
+alias c='clear'
+
+# Additional Git aliases not in ZSH git addon
+alias gss="git status -sb"
+
+# OpenModelica
+alias docker-om='docker run -it --rm -v "$HOME:$HOME" -e "HOME=$HOME" -w "$PWD" -e "DISPLAY=`ifconfig | grep -o "inet [0-9.]*" | grep -Eo "[0-9.]{7,}" | grep -Fv 127.0.0.1 | head -1`:0" --user $UID openmodelica/openmodelica:v1.24.2-gui'
+alias omedit="docker-om OMEdit"
+
+# SSH via Rainbow
+ssh_via_rainbow() {
+  ssh -L 13389:"$1".aero.polimi.it:3389 faraco@rainbow.aero.polimi.it -N
+}
+alias ueditor='docker run --rm -ti -v .:/project ghcr.io/epicgames/unreal-engine:dev-5.4.3 /home/ue4/UnrealEngine/Engine/Binaries/Linux/UnrealEditor'
